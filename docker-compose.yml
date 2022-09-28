@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=devpro
+      - POSTGRES_PASSWORD=devpro
+    restart: on-failure
+
+volumes:
+  pgdata:
