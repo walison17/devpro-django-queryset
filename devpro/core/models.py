@@ -38,6 +38,7 @@ class Category(models.Model):
     class Meta:
         managed = False
         db_table = 'category'
+        ordering = ('name',)
 
     def __str__(self):
         return self.name
@@ -155,6 +156,9 @@ class Language(models.Model):
     class Meta:
         managed = False
         db_table = 'language'
+
+    def __str__(self):
+        return self.name
 
 
 class Payment(models.Model):
